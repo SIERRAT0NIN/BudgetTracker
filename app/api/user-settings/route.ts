@@ -25,7 +25,6 @@ export async function GET(request: Request) {
     });
   }
 
-  // Revalidate the home page that uses the user currency
   revalidatePath("/");
   return Response.json(userSettings);
 }

@@ -39,12 +39,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
 import { CalendarIcon, Loader2 } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
+
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CreateTransaction } from "@/app/(dashboard)/_actions/transactions";
 import { toast } from "sonner";
 import { DateToUTCDate } from "@/lib/helpers";
 import CategoryPicker from "./CategoryPicker";
+import { Calendar } from "@/components/ui/calendar";
 
 interface Props {
   trigger: ReactNode;
@@ -209,7 +210,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                             if (!value) return;
                             field.onChange(value);
                           }}
-                          initialFocus
+                          // initialFocus
                         />
                       </PopoverContent>
                     </Popover>

@@ -149,7 +149,6 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="icon"
