@@ -5,7 +5,7 @@ import {
   CreateTransactionSchema,
   CreateTransactionSchemaType,
 } from "@/schema/transaction";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 export async function CreateTransaction(form: CreateTransactionSchemaType) {
@@ -50,7 +50,7 @@ export async function CreateTransaction(form: CreateTransactionSchemaType) {
     // Update month aggregate table
     prisma.monthHistory.upsert({
       where: {
-        day_month_year_userId: {
+        userId_day_month_year: {
           userId: user.id,
           day: date.getUTCDate(),
           month: date.getUTCMonth(),
@@ -78,7 +78,7 @@ export async function CreateTransaction(form: CreateTransactionSchemaType) {
     // Update year aggreate
     prisma.yearHistory.upsert({
       where: {
-        month_year_userId: {
+        userId_month_year: {
           userId: user.id,
           month: date.getUTCMonth(),
           year: date.getUTCFullYear(),
